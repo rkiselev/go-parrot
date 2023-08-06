@@ -24,5 +24,4 @@ func Fight(player1 *model.Human, player2 *model.Human) string {
 	} else {
 		return "Player2 is looser"
 	}
-
 }
