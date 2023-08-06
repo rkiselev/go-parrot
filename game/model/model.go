@@ -5,6 +5,14 @@ type Human struct {
 	Agility  int
 }
 
+type GameStage struct {
+	Text         string
+	CurrentIndex int
+	NextSteps    []int
+	Enemy        Human
+}
+
 type GameState struct {
 	Player Human
+	Stage  GameStage
 }

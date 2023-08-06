@@ -25,3 +25,13 @@ func Fight(player1 *model.Human, player2 *model.Human) string {
 		return "Player2 is looser"
 	}
 }
+
+func Init() (model.Human, string) {
+	strength := model.GetStrength(cube.Dice())
+	agility := model.GetAgility(cube.Dice())
+	player := model.Human{
+		Strength: strength,
+		Agility:  agility,
+	}
+	return player, "Хорошо, мы создали игрока с силой " + strconv.Itoa(strength) + " и ловкостью " + strconv.Itoa(strength) + ". Вы готовы продолжить?"
+}
