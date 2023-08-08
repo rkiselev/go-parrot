@@ -11,8 +11,10 @@ import (
 	"strings"
 )
 
+var currenPlayer model.Human
+
 func Handler(ctx context.Context, question entity.Question) (*entity.ResponseEntity, error) {
-	fmt.Println(ctx)
+	fmt.Println(currenPlayer)
 
 	var text = question.Request.OriginalUtterance
 	var voice = text
@@ -31,6 +33,10 @@ func Handler(ctx context.Context, question entity.Question) (*entity.ResponseEnt
 		text = game.Fight(&player1, &player2)
 		fmt.Printf("Player1 %v\n", strconv.Itoa(player1.Strength))
 		fmt.Printf("Player2 %v\n", strconv.Itoa(player2.Strength))
+	} else if strings.ToLower(question.Request.OriginalUtterance) == "начать" {
+		player, responseText := game.Init()
+		text = responseText
+		currenPlayer = player
 	}
 	return &entity.ResponseEntity{
 			Version: "1.0",

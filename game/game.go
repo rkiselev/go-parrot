@@ -33,5 +33,8 @@ func Init() (model.Human, string) {
 		Strength: strength,
 		Agility:  agility,
 	}
-	return player, "Хорошо, мы создали игрока с силой " + strconv.Itoa(strength) + " и ловкостью " + strconv.Itoa(strength) + ". Вы готовы продолжить?"
+	return player,
+		"Хорошо, мы создали игрока с силой " +
+			strconv.Itoa(strength) + " и ловкостью " +
+			strconv.Itoa(strength) + ". Вы готовы продолжить?"
 }
